@@ -22,6 +22,7 @@ interface MahasiswaDao {
     fun getMahasiswa(nim: String) : Flow<Mahasiswa>
 
 
+
     @Delete
     suspend fun deleteMahasiswa(mahasiswa: Mahasiswa)
 
