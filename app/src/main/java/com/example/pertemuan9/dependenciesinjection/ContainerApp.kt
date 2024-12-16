@@ -5,11 +5,12 @@ import com.example.pertemuan9.Repository.LocalRepositoryMhs
 import com.example.pertemuan9.Repository.RepositoryMhs
 import com.example.pertemuan9.data.database.KrsDatabase
 
-interface ContainerApp {
+interface InterfaceContainerApp {
     val repositoryMhs: RepositoryMhs
 }
 
-class ContainerAppImpl(private val context: Context) : ContainerApp {
+
+class ContainerApp(private val context: Context) : InterfaceContainerApp {
     override val repositoryMhs: RepositoryMhs by lazy {
         LocalRepositoryMhs(KrsDatabase.getDatabase(context).mahasiswaDao())
     }
