@@ -60,7 +60,6 @@ fun PengelolaHalaman(
                 }
             )
         ){
-
             val nim = it.arguments?.getString(DestinasiDetail.NIM)
             nim?.let { nim ->
                 DetailMhsView(
