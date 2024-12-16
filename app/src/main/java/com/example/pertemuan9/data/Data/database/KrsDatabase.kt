@@ -4,27 +4,28 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.pertemuan9.data.Data.dao.Mahasiswadao
+import com.example.pertemuan9.data.Data.dao.MahasiswaDao
 import com.example.pertemuan9.data.Data.entity.Mahasiswa
 
 @Database(entities = [Mahasiswa::class], version = 1, exportSchema = false)
-abstract class KrsDatabase : RoomDatabase(){
+abstract class KrsDatabase : RoomDatabase() {
 
-    // Mengidentifikasi fungsi untuk mengakses data mahasiswa
-    abstract fun mahasiswaDao(): Mahasiswadao
+    //Medefinisikan fungsi untuk mengakses data mahasiswa
+    abstract fun  mahasiswaDao(): MahasiswaDao
 
     companion object{
-        @Volatile // Memastikan bahwa niai variabel Instance selalu sama di semua
-        private var Instance: KrsDatabase? = null
+        @Volatile // memastikan bahawa nilai variabel instance selalu sama di semua
+        private var  Instances: KrsDatabase? = null
+
 
         fun getDatabase(context: Context): KrsDatabase{
-            return (Instance ?: synchronized(this){
+            return (Instances ?: synchronized(this) {
                 Room.databaseBuilder(
                     context.applicationContext,
-                    KrsDatabase::class.java, // Class database
-                    "KrsDatabase" // Nama database
+                    KrsDatabase::class.java,
+                    "KrsDatabase"
                 )
-                    .build().also { Instance = it  }
+                    .build().also { Instances =it }
             })
         }
     }
