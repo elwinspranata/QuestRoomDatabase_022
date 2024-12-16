@@ -26,6 +26,7 @@ fun TopAppBar(
             .padding(16.dp),
         contentAlignment = Alignment.Center // Pastikan konten di tengah
     ) {
+
         if (showBackButton) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
