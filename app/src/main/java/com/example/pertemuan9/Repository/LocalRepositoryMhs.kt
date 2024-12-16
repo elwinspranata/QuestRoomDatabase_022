@@ -22,6 +22,7 @@ class LocalRepositoryMhs(
         return mahasiswaDao.getMahasiswa(nim = nim)
     }
 
+
     override suspend fun deleteMhs(mahasiswa: Mahasiswa) {
         mahasiswaDao.deleteMahasiswa(mahasiswa)
     }
